@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+void selection()
+
+{
+int n;
+      cin>>n;
+      int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+
+ for(int i=0;i<n-1;i++)
+ {
+     int minNum=i;
+     for(int j=i+1;j<n;j++)
+     {
+         if(arr[j]<arr[minNum])
+            minNum=j;
+     }
+     int temp=arr[minNum];
+        arr[minNum]=arr[i];
+        arr[i]=temp;
+ }
+
+ for(int k=0;k<n;k++)
+ {
+     cout<<k+1<<") "<<arr[k]<<endl;
+ }
+
+}
+int main()
+{
+
+      selection();
+
+    return 0;
+}
