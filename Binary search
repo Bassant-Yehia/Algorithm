@@ -1,0 +1,98 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+//require to be sorted and generating random values in the arr
+//recursion
+
+int BinarySearch(int arr[],int l,int h,int num)
+{
+    int mid=(l+h)/2;
+    if(arr[mid]==num)
+        return mid;
+    else if(arr[mid]<num)
+        return BinarySearch(arr,mid+1,h, num);
+    else
+        return BinarySearch(arr,l,mid-1,num);
+}
+//dynamic
+int BinarySearch2(int arr2[],int Start,int End,int target)
+{
+    int mid2=(Start+End)/2;
+    for(Start=0; Start<End; Start++)
+    {
+        if(arr2[mid2]==target)
+            return mid2;
+        else if(arr2[mid2]>target)
+            End=mid2-1;
+        else
+            Start=mid2+1;
+
+    }
+}
+
+int main()
+{
+    int Size=100;
+    int arr[Size];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    srand(time(NULL));
+    for(int i=0; i<Size; i++)
+    {
+        arr[i]=rand()%100;
+    }
+
+    for(int i=0; i<Size-1; i++)
+    {
+        int temp;
+        int Min=i;
+        for(int j=i+1; j<Size; j++)
+        {
+            if(arr[j]<arr[Min])
+                Min=j;
+            temp=arr[i];
+            arr[i]=arr[Min];
+            arr[Min]=temp;
+        }
+    }
+
+    for (int i=0; i<Size; i++)
+    {
+
+        cout<<arr[i]<<" ";
+    }
+
+
+    cout<<endl<<endl;
+
+    int m=BinarySearch(arr,0,Size,10);
+    int n=BinarySearch2(arr,0,Size,3);
+    cout<<m+1<<endl;
+    cout<<n+1<<endl;
+//int arr[5]={1,2,3,4, 5};
+
+    return 0;
+}
