@@ -6,8 +6,10 @@ void Insertion()
 
 {
 int n,temp;
+cout<<"enter the size of array"<<endl;
       cin>>n;
       int arr[n];
+cout<<"enter the elements of array"<<endl;
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
@@ -17,6 +19,7 @@ int n,temp;
  {
     int sorted_turn=arr[i];
     int j;
+    //sorting by insertion
     for(j=i-1;j>=0&&arr[j]>sorted_turn;j--)
     {
 
@@ -27,10 +30,12 @@ int n,temp;
 
      arr[j+1]=sorted_turn;
  }
+ cout<<"the array after sorting is"<<endl;
+ //for printing the sorted array
 
  for(int k=0;k<n;k++)
  {
-     cout<<k+1<<") "<<arr[k]<<endl;
+     cout<<k+1<<") "<<arr[k]<<"    ";
  }
 
 }
